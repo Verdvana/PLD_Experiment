@@ -15,15 +15,15 @@ reg	clk_1hz;
 
 always@(posedge clk_50m or negedge rst_n ) 
 begin  
-  if(!rst_n)  
-    cnt_0<=24'd0;  
-  else if(cnt_0==25000000)
-    begin   
-	   cnt_0<=24'd0;   
-		clk_1hz<=~clk_1hz;   //半秒反转一次 一秒一个上升沿
+	if(!rst_n)  
+		cnt_0<=24'd0;  
+ 	else if(cnt_0==25000000)
+		begin   
+			cnt_0<=24'd0;   
+			clk_1hz<=~clk_1hz;  
 		end  
-  else   
-    cnt_0<=cnt_0+1; 
+	else   
+		cnt_0<=cnt_0+1; 
 end 
 
 //-----------------------------------------------------
